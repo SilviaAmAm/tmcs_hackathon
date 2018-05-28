@@ -2,7 +2,7 @@
 
 In this exercise, you will use a neural network to fit a potential energy surface for a chemical reaction. The reaction under study is:
 
-CH<sub>4</sub> + CN -> CH<sub>3</sub> + HCN
+CH_4 + CN -> CH_3 + HCN
 
 The idea of fitting potential energy surfaces is used to speed up ab-initio molecular dynamics.
 
