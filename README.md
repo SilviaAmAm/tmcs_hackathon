@@ -45,3 +45,9 @@ npzfile = np.load("test_100.npz")
 descriptor = npzfile['arr_0']
 energies = npzfile['arr_1']
 ```
+
+### When everything works
+
+Once the descriptors and the pipeline are all ready you should try to make plotsof how the predictions of the neural network compare to the original data. You can do this by plotting the predictions on the x axis and the true values on the y axis. In an ideal world, you should obtain y = x lines. You can then compare the performance of the different descriptor.
+
+If you have time left, you can also write a function that calculates different properties of the molecule (like C-C distances, C-H distances...) and then plot the predictions and the true values as a function of these properties. This can give you an insight on which structures the neural network struggles to predict.
