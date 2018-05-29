@@ -31,4 +31,5 @@ This is a suggestion of how you could split the tasks:
 3. Write the script that generates the eigenspectrum of the Coulomb matrix.
 4. Write the script that generates the sorted Coulomb matrix.
 5. Write the script that generates the randomised Coulomb matrix.
-6. Write the machine learning pipeline using sci-kit learn.
+6. Write the script that reduces the dimensions of the Coulomb matrices.
+7. Write the machine learning pipeline using sci-kit learn.
