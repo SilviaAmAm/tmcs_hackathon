@@ -33,3 +33,15 @@ This is a suggestion of how you could split the tasks:
 5. Write the script that generates the randomised Coulomb matrix.
 6. Write the script that reduces the dimensions of the Coulomb matrices.
 7. Write the machine learning pipeline using sci-kit learn.
+
+For each of these tasks, you will find a file in this directory that tells you what shape the input and the output of the function that you need to write. Tasks2 and 3 are for beginner level; task 1, 4, 5 are lower intermediate level and task 7 is more advanced.
+
+For task 7, a mini pre-made data set with 100 data points is provided to test if the science pipeline works. This can be found in the file test_100.npz. To load the data from this file, use:
+
+```
+import numpy as np
+
+npzfile = np.load("test_100.npz")
+descriptor = npzfile['arr_0']
+energies = npzfile['arr_1']
+```
