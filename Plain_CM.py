@@ -12,4 +12,6 @@ The outpus should have the following dimensions:
 CM - numpy array of floats of shape (n_samples, n_features)
 
 where: n_features in this case is the square of the number of atoms in the molecules (i.e. 49)
+
+The reason why the output should have this shape is explained below. Each molecule will have a corresponding Coulomb matrix. The Coulomb matrices are square, symmetric matrices. So, you will have n_samples Coulomb matrices. The neural networks take vectors as inputs, not matrices. So the Coulomb matrices need to be flattened to vectors to be suitable.
 """
