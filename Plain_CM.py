@@ -4,7 +4,7 @@ and returns the plain Coulomb matrix for all the molecules.
 
 The inputs should have these dimensions:
 xyz - numpy array of floats of shape (n_samples, n_atoms, 3)
-Zs - numpy array of floats of shape (n_samples, n_atoms)
+Zs - numpy array of floats of shape (n_atoms,)
 
 where: n_samples is the number of data points in the data set and n_atoms is the number of atoms in a molecule.
 
