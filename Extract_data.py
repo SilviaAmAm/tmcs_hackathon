@@ -4,8 +4,8 @@ xyz coordinates of all the molecules, a numpy array that contains the nuclear ch
 numpy array that contains the energy of each molecule. These should have the following dimensions/types:
 
 xyz - numpy array of floats of shape (n_samples, n_atoms, 3)
-Zs - numpy array of floats of shape (n_samples, n_atoms)
-energies - numpy array of floats of shape (n_samples, 1)
+Zs - numpy array of floats of shape (n_atoms,)
+energies - numpy array of floats of shape (n_samples,)
 
 where: n_samples is the number of data points in the data set and n_atoms is the number of atoms in a molecule.
 """
