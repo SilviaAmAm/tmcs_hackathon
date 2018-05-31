@@ -15,4 +15,16 @@ the data. The estimator is scored and then used to make predictions on a test se
 ## Use Trim_CM to reduce the number of features of the CM
 
 
-## 
+## Split the data into a train and test set
+
+
+## Create an object MLPRegressor
+
+
+## Fit the regressor
+
+
+## Score the regressor
+
+
+## Make predictions for the test set
