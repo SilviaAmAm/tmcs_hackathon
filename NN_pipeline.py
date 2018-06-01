@@ -36,12 +36,11 @@ reduced_randomCM=Trim_CM(Random_CM)
 
 ## Split the data into a train and test set
 x_train, x_test, y_train, y_test = modsel.train_test_split(reduced_randomCM, energies_data, test_size=0.2, random_state=0)
-print(x_train.shape)
-print(y_train.shape)
+
 
 ## Create an object MLPRegressor
 
-estimator = MLPRegressor(hidden_layer_sizes=(30,30,30),solver='adam',max_iter=5000,alpha=0,learning_rate_init=0.0001)
+estimator = MLPRegressor(hidden_layer_sizes=(30,30,30),solver='adam',max_iter=1000,alpha=0,learning_rate_init=0.0001)
 
 
 ## Fit the regressor
