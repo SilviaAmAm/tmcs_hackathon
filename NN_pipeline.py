@@ -20,7 +20,7 @@ configs,energies_data,Z_array = Extract_data.extract_and_format_data(xyz_files,C
 #   The plain CM matrix
 
 CM=plain_cm(configs,Z_array)
-print(CM.shape)
+
 #   Use Eigenspectrum, Sorted_CM, Randomised_CM to make the variations of the Coulomb matrices
 #CM_Eigenvalues = diagonalise(CM)
 #   CM_sorted=

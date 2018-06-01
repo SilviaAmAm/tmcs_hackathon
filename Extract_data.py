@@ -79,7 +79,7 @@ def read_energy_data(energy_file):
     for line in energy_data: # read each line of the file in turn
         config,energy = line.split() # separate the geometry from the energy
         configs_list.append(line) # just number the geometries rather than saving all the filenames
-        energies_list.append(energy)
+        energies_list.append(float(energy))
     energy_data.close()
     config_array,energy_array = np.array(configs_list),np.array(energies_list)
     return config_array,energy_array
