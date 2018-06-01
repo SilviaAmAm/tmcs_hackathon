@@ -23,19 +23,19 @@ configs,energies_data,Z_array = Extract_data.extract_and_format_data(xyz_files,C
 CM=plain_cm(configs,Z_array)
 
 #   Use Eigenspectrum, Sorted_CM, Randomised_CM to make the variations of the Coulomb matrices
-#CM_Eigenvalues = diagonalise(CM)
+CM_Eigenvalues = diagonalise(CM)
 #   CM_sorted=
-Random_CM = randomise_cm_array(CM)
+#Random_CM = randomise_cm_array(CM)
 
 ## Use Trim_CM to reduce the number of features of the CM
 
 #reduced_CM=Trim_CM(CM)
-reduced_randomCM=Trim_CM(Random_CM)
+#reduced_randomCM=Trim_CM(Random_CM)
 
 #reduced_shortedCM=Trim_CM(Sorted_CM)
 
 ## Split the data into a train and test set
-x_train, x_test, y_train, y_test = modsel.train_test_split(reduced_randomCM, energies_data, test_size=0.2, random_state=0)
+x_train, x_test, y_train, y_test = modsel.train_test_split(CM_Eigenvalues, energies_data, test_size=0.2, random_state=0)
 
 
 ## Create an object MLPRegressor
@@ -50,7 +50,7 @@ estimator.fit(x_train, y_train)
 score = estimator.score(x_train, y_train)
 print(score)
 
-y_predicted = estimator.predict(x_train)
+y_predicted = estimator.predict(x_test)
 
-plt.scatter(y_train,y_predicted)
+plt.scatter(y_test,y_predicted)
 ## Make predictions for the test set
