@@ -12,3 +12,14 @@ es - numpy array of floats of shape (n_samples, n_eigenvalues)
 
 where: n_eigenvalues is the number of eigenvalues of the Coulomb matrix (i.e. - 7)
 """
+
+import numpy as np
+
+def diagonalise(cm_array):
+    eigenspectrum_mat = np.zeros(shape=(len(cm_array[:,0]), 7))
+    for i in range(len(cm_array[:, 0])):
+        to_diag = np.reshape(cm_array[i, :], (7, 7))
+        energy = np.linalg.eigvals(to_diag)
+        energy = np.sort(energy)[::-1]
+        eigenspectrum_mat[i, :] = energy
+    return eigenspectrum_mat
