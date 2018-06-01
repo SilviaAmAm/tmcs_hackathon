@@ -2,13 +2,7 @@ import numpy as np
 import math
 import scipy as sp
 
-# xyz = np.arange(21).reshape(2,7,3)
-test_xyz = np.ones((2, 7, 3))
-z_s = [6, 6, 1, 1, 1, 1, 7]
-#n_samples = 2
-#n_features = 49
-n_atoms = 7
-# print(xyz)
+
 
 #calculate each component of matrix
 def plain_cm(xyz, z_s):
@@ -46,4 +40,13 @@ def plain_cm(xyz, z_s):
 
         return plain_cm
 
-plain_cm(test_xyz, z_s)
+if __name__ == "__main__":
+    # xyz = np.arange(21).reshape(2,7,3)
+    test_xyz = np.ones((2, 7, 3))
+    z_s = [6, 6, 1, 1, 1, 1, 7]
+    #n_samples = 2
+    #n_features = 49
+    n_atoms = 7
+    # print(xyz)
+
+    plain_cm(test_xyz, z_s)
