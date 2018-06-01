@@ -79,26 +79,25 @@ def read_energy_data(energy_file):
     for line in energy_data: # read each line of the file in turn
         config,energy = line.split() # separate the geometry from the energy
         configs_list.append(line) # just number the geometries rather than saving all the filenames
-        energies_list.append(energy)
+        energies_list.append(float(energy))
     energy_data.close()
     config_array,energy_array = np.array(configs_list),np.array(energies_list)
     return config_array,energy_array
 
 
-def extract_and_format_data():
+def extract_and_format_data(xyz_files,energy_file):
     """
     Specify paths to data files in UNIX style
     """
-    xyz_files = "vr_ccsd/*.xyz"
-    CH4_CN = "vr_ccsd/properties.txt"
+
     # extract geometry data from xyz files
     atoms_array,coordinates_tensor = extract_and_format_xyzs(xyz_files)
     # extract energy data
-    configs,energies = read_energy_data(CH4_CN)
+    configs,energies = read_energy_data(energy_file)
     #create array of atomic numbers
     Z_array = np.array([6,1,1,1,1,6,7])
     
-    return configs,energies,Z_array
+    return coordinates_tensor,energies,Z_array
 
 
 
