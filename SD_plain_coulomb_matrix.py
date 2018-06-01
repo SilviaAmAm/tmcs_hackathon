@@ -19,6 +19,7 @@ def plain_cm(xyz, z_s):
                 for j in range(i+1, n_atoms):
                     dist = np.linalg.norm(xyz[p][i] - xyz[p][j])
                     coulomb_matrix[i][j] = (z_s[i] * z_s[j]) / dist
+                    coulomb_matrix[j][i] = (z_s[j] * z_s[i]) / dist
             for k in range(0, n_atoms):
                 coulomb_matrix[k][k] = 0.5 * (z_s[k] ** 2.4)
             #print(coulomb_matrix)
@@ -45,7 +46,7 @@ def plain_cm(xyz, z_s):
             else:
                 np.concatenate((plain_matrix, linear_array), axis = 0)
             """
-            #print(plain_matrix)
+        #print(plain_matrix)
 
         return plain_matrix
 

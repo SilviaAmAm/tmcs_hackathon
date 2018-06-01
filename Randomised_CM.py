@@ -16,31 +16,37 @@ import numpy as np
 
 def randomise_cm_array(cm_array):
     #find out how many rows there are in the coulomb matrix
-    dim = len(cm_array[:, 0])
-    #initialise arrays for later
-    norm = np.zeros(shape=dim)
-    epsilon_array = np.zeros(shape=dim)
-    norm_plus_e_array = np.zeros(shape=dim)
-    for i in range(dim):
+    dim_2 = len(cm_array[:, 0])
+    new_cm_array = np.zeros(shape=(len(cm_array[:,0]), 49))
+    for j in range(dim_2):
+        coulomb_square = np.reshape(cm_array[j, :], (7, 7))
+        #initialise arrays for later
+        norm = np.zeros(shape=7)
+        epsilon_array = np.zeros(shape=7)
+        norm_plus_e_array = np.zeros(shape=7)
+        for i in range(7):
         #calculates norm of each row (i think)
-        norm[i] = np.linalg.norm(cm_array[i, :])
+            norm[i] = np.linalg.norm(coulomb_square[i, :])
     #find standard deviation of norm vector (this divides by N but not sure if it should divide by N-1,
     #although that can be changed later
-    sigma = np.std(norm)
-    for i in range(dim):
+        sigma = np.std(norm)
+        for i in range(7):
         #draw a random number from normal distribution
         #centred at zero and standard deviation sigma
-        epsilon_array[i] = np.random.normal(0, sigma)
+            epsilon_array[i] = np.random.normal(0, sigma)
         #add arrays together
-        norm_plus_e_array[i] = norm[i] + epsilon_array[i]
+            norm_plus_e_array[i] = norm[i] + epsilon_array[i]
     #find permutation that sorts the new array into ascending order
     #not entirely sure how/if this works but this is how I did a similar thing in some earlier code
-    p = norm_plus_e_array.argsort()[::1]
+        p = norm_plus_e_array.argsort()[::-1]
     #permute columns using this
-    new_cm_array_columns = cm_array[p, :]
+        new_cm_array_columns = coulomb_square[p, :]
     #permute rows using this and then return randomised array
-    new_cm_array = new_cm_array_columns[:, p]
+        new_coulomb_square = new_cm_array_columns[:, p]
+        new_coulomb_line = np.reshape(new_coulomb_square, (49, ))
+        new_cm_array[j, :] = new_coulomb_line
     return new_cm_array
+
 
 if __name__ == "__main__":
 
