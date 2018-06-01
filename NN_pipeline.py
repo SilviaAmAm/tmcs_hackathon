@@ -12,6 +12,7 @@ from sklearn.neural_network import MLPRegressor
 import matplotlib.pyplot as plt
 
 import Extract_data
+import Sorted_CM
 
 #   Extract data from file
 xyz_files= "vr_ccsd/*.xyz"
@@ -23,8 +24,8 @@ configs,energies_data,Z_array = Extract_data.extract_and_format_data(xyz_files,C
 CM=plain_cm(configs,Z_array)
 
 #   Use Eigenspectrum, Sorted_CM, Randomised_CM to make the variations of the Coulomb matrices
-CM_Eigenvalues = diagonalise(CM)
-#   CM_sorted=
+#CM_Eigenvalues = diagonalise(CM)
+CM_sorted = Sorted_CM.SortCM(CM)
 #Random_CM = randomise_cm_array(CM)
 
 ## Use Trim_CM to reduce the number of features of the CM
@@ -32,10 +33,10 @@ CM_Eigenvalues = diagonalise(CM)
 #reduced_CM=Trim_CM(CM)
 #reduced_randomCM=Trim_CM(Random_CM)
 
-#reduced_shortedCM=Trim_CM(Sorted_CM)
+reduced_sortedCM=Trim_CM(CM_sorted)
 
 ## Split the data into a train and test set
-x_train, x_test, y_train, y_test = modsel.train_test_split(CM_Eigenvalues, energies_data, test_size=0.2, random_state=0)
+x_train, x_test, y_train, y_test = modsel.train_test_split(reduced_sortedCM, energies_data, test_size=0.2, random_state=0)
 
 
 ## Create an object MLPRegressor
