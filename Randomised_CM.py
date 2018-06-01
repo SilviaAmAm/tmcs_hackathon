@@ -38,7 +38,7 @@ def randomise_cm_array(cm_array):
             norm_plus_e_array[i] = norm[i] + epsilon_array[i]
     #find permutation that sorts the new array into ascending order
     #not entirely sure how/if this works but this is how I did a similar thing in some earlier code
-        p = norm_plus_e_array.argsort()[::1]
+        p = norm_plus_e_array.argsort()[::-1]
     #permute columns using this
         new_cm_array_columns = coulomb_square[p, :]
     #permute rows using this and then return randomised array

@@ -6,10 +6,12 @@ import scipy as sp
 
 #calculate each component of matrix
 def plain_cm(xyz, z_s):
+        # define some variables
         n_samples = xyz.shape[0]
         n_atoms = xyz.shape[1]
         n_features = n_atoms * n_atoms
         coulomb_matrix = np.zeros((n_atoms, n_atoms))
+        # set up output matrix
         plain_matrix = np.zeros((n_samples, n_features))
         # loop over all geometries
         for p in range(0, n_samples):
@@ -22,16 +24,20 @@ def plain_cm(xyz, z_s):
                 coulomb_matrix[k][k] = 0.5 * (z_s[k] ** 2.4)
             #print(coulomb_matrix)
 
+            # convert 7 x 7 matrix into one line of data
             row_of_data = coulomb_matrix.tolist()
             #print(row_of_data)
             linear_data = []
+            # add each item of data in array into a list
             for sublist in row_of_data:
                 for elem in sublist:
                     linear_data.append(elem)
             #print(linear_data)
+            # make list into an array
             linear_array = np.array(linear_data)
             #print(linear_array)
-            
+
+            # add each line of data in array form in larger array running over all samples
             plain_matrix[p] = linear_array
             
             """
