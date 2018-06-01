@@ -97,7 +97,7 @@ def extract_and_format_data(xyz_files,energy_file):
     #create array of atomic numbers
     Z_array = np.array([6,1,1,1,1,6,7])
     
-    return configs,energies,Z_array
+    return coordinates_tensor,energies,Z_array
 
 
 

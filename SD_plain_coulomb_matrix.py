@@ -30,15 +30,18 @@ def plain_cm(xyz, z_s):
             #print(linear_data)
             linear_array = np.array(linear_data)
             #print(linear_array)
-
+            
+            plain_matrix[p] = linear_array
+            
+            """
             if (p == 0):
                 plain_matrix = linear_array
             else:
                 np.concatenate((plain_matrix, linear_array), axis = 0)
+            """
+            #print(plain_matrix)
 
-            print(plain_matrix)
-
-        return plain_cm
+        return plain_matrix
 
 if __name__ == "__main__":
     # xyz = np.arange(21).reshape(2,7,3)

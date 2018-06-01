@@ -18,8 +18,9 @@ CH4_CN="vr_ccsd/properties.txt"
 configs,energies_data,Z_array = Extract_data.extract_and_format_data(xyz_files,CH4_CN)        # Configs, xyz data, Z_array, atomic numbers,
 
 #   The plain CM matrix
-CM=plain_cm(configs,Z_array)
 
+CM=plain_cm(configs,Z_array)
+print(CM.shape)
 #   Use Eigenspectrum, Sorted_CM, Randomised_CM to make the variations of the Coulomb matrices
 #CM_Eigenvalues = diagonalise(CM)
 #   CM_sorted=
@@ -34,7 +35,8 @@ reduced_CM=Trim_CM(CM)
 
 ## Split the data into a train and test set
 x_train, x_test, y_train, y_test = modsel.train_test_split(reduced_CM, energies_data, test_size=0.2, random_state=0)
-
+print(x_train.shape)
+print(y_train.shape)
 
 ## Create an object MLPRegressor
 
