@@ -12,3 +12,10 @@ es - numpy array of floats of shape (n_samples, n_eigenvalues)
 
 where: n_eigenvalues is the number of eigenvalues of the Coulomb matrix (i.e. - 7)
 """
+
+import numpy as np
+
+def diagonalise(cm_array):
+    energy = np.linalg.eigvals(cm_array)
+    energy = np.sort(energy)
+    return energy
