@@ -28,16 +28,15 @@ This is a suggestion of how you could split the tasks:
 
 1. Write the scripts to extract the data from the xyz files and the properties.txt file.
 2. Write the script that generates the "plain" Coulomb matrix.
-3. Write the script that turns a square matrix into a vector and viceversa.
-4. Write the script that generates the eigenspectrum of the Coulomb matrix.
-5. Write the script that generates the sorted Coulomb matrix.
-6. Write the script that generates the randomised Coulomb matrix.
-7. Write the script that reduces the dimensions of the Coulomb matrices.
-8. Write the machine learning pipeline using sci-kit learn.
+3. Write the script that generates the eigenspectrum of the Coulomb matrix.
+4. Write the script that generates the sorted Coulomb matrix.
+5. Write the script that generates the randomised Coulomb matrix.
+6. Write the script that reduces the dimensions of the Coulomb matrices and flattens it to a vector.
+7. Write the machine learning pipeline using sci-kit learn.
 
-For each of these tasks, you will find a file in this directory that tells you what shape the input and the output of the function that you need to write. Tasks 2, 3 and 4 are for beginner level; task 1, 5, 6 are lower intermediate level and task 8 is more advanced.
+For each of these tasks, you will find a file in this directory that tells you what shape the input and the output of the function that you need to write. Tasks 2 and 3 are for beginner level; task 1, 4, 5 are lower intermediate level and task 7 is more advanced.
 
-For task 8, a mini pre-made data set with 100 data points is provided to test if the science pipeline works. This can be found in the file test_100.npz. To load the data from this file, use:
+For task 7, a mini pre-made data set with 100 data points is provided to test if the science pipeline works. This can be found in the file test_100.npz. To load the data from this file, use:
 
 ```
 import numpy as np
